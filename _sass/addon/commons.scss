@@ -1,11 +1,17 @@
-/* 只让侧边栏变色 */
-#sidebar {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+/* 强制覆盖所有背景 */
+html, body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) !important;
+    background-size: 400% 400% !important;
+    animation: gradientBG 15s ease infinite !important;
+    height: 100%; /* 防止背景只显示一半 */
 }
 
-/* 定义动画（同上） */
+/* 让侧边栏和主内容区透明，否则它们会挡住背景 */
+#sidebar, .main-wrapper, #main-wrapper {
+    background-color: transparent !important;
+}
+
+/* 动画定义 */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
